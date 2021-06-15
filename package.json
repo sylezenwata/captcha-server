@@ -1,0 +1,47 @@
+{
+  "name": "captcha",
+  "version": "1.0.0",
+  "description": "Advance captcha verification system",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "sass": "node-sass assets/css/ca.scss assets/css/ca.css --watch",
+    "build": "webpack",
+    "test": "jest --coverage"
+  },
+  "keywords": [
+    "captcha",
+    "bots",
+    "human",
+    "verification"
+  ],
+  "author": "Sylvester Ezenwata",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.0.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "nanoid": "^3.1.23"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.1.3",
+    "jest": "^27.0.4",
+    "mini-css-extract-plugin": "^1.3.9",
+    "node-sass": "^6.0.0",
+    "nodemon": "^2.0.7",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.27.1",
+    "webpack-cli": "^4.5.0"
+  }
+}
