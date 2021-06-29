@@ -38,6 +38,6 @@ const systemTest = pipe(
 );
 
 // system test
-test('CAPTCHA system test.', () => {
+test('CAPTCHA Integration test.', () => {
     expect(systemTest()).toBeTruthy();
 });
