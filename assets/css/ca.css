@@ -135,10 +135,10 @@
   #captchaContainer #captchaPopup[data-validate]::before {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.9);
     content: attr(data-validate);
     z-index: 1;
-    color: #fff;
+    color: #000;
     border-radius: 5px;
     display: flex;
     justify-content: center;

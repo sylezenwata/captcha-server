@@ -1,12 +1,6 @@
+// set library
 const SET = require("./set");
 
-/**
- * function to val device type and add 'not-mobile' class
- * to html tag if it's not 'desktop'
- */
-export function valDeviceType() {
-	SET.deviceType() === "desktop" && SET.fixClass(["html"], [["not-mobile"]], [[true]]);
-}
 /**
  * function run a function on window event
  * @param {String} event
@@ -18,6 +12,7 @@ export function winClick(event, func, off = false) {
 	}
 	window.on(event, func, { once: true });
 }
+
 /**
  * function to validate data
  * @param {*|Array} data Data to validate
@@ -41,6 +36,7 @@ export function validateData(data, regex) {
 		? newData[0]
 		: false;
 }
+
 /**
  * function to stop event propagation
  * @param {Object} e
@@ -48,19 +44,21 @@ export function validateData(data, regex) {
 export function eventPropagator(e) {
 	e.stopPropagation();
 }
+
 /**
  * function to decipher puzzle
  */
 export function unitaryBase(puzzle) {
-	if ('string' === typeof puzzle) {
-		let count = 0;
-		let decipheredPuzzle = '';
-		[...puzzle].map((eP, ePI) => {
-			if (ePI + 1 - 7 === count) {
-				count = ePI + 1;
-				decipheredPuzzle += eP;
-			}
-		});
-		return decipheredPuzzle;
+	if ('string' !== typeof puzzle) {
+		throw new Error('Expects parameter to be type string.');
 	}
+	let count = 0;
+	let decipheredPuzzle = '';
+	[...puzzle].map((eP, ePI) => {
+		if (ePI + 1 - 7 === count) {
+			decipheredPuzzle += eP;
+			count = ePI + 1;
+		}
+	});
+	return decipheredPuzzle;
 }

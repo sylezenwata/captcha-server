@@ -178,10 +178,10 @@ $sec-bx-s: 0 8px 10px 1px rgba(0,0,0,0.14),0 3px 14px 2px rgba(0,0,0,0.12),0 5px
     #captchaPopup[data-validate]::before {
         position: absolute;
         inset: 0;
-        background-color: rgba(0,0,0,0.4);
+        background-color: rgba(255,255,255,0.9);
         content: attr(data-validate);
         z-index: 1;
-        color: #fff;
+        color: #000;
         border-radius: 5px;
         display: flex;
         justify-content: center;

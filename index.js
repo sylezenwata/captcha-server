@@ -1,10 +1,13 @@
 require("dotenv").config();
 const express = require("express");
 
+// app
 const app = express();
 
+// app config, errorHnadler & port
 const { appConfig, errorHandler, appPort } = require("./config");
 
+// routes
 const Routes = require("./routes");
 
 /**
