@@ -1,6 +1,11 @@
+/**
+ * server utility modules
+ */
+
+// dependencies
 const CryptoJs = require("crypto-js");
 const { customAlphabet } = require("nanoid");
-const nanoid = customAlphabet('ABCDEFGHIJKLMNPQRSTUVWXYZ123456789', 6);
+const nanoid = customAlphabet('ABCDEFGHIJKLMNPQRSTUVWXYabcdefghijklmnpqrstuvwxyzZ123456789', 6);
 
 /**
  * function to handle error

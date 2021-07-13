@@ -2,6 +2,8 @@
 
 // css files
 require("../css/animate.css");
+require("../css/base.css");
+require("../css/form.css");
 require("../css/ca.css");
 
 // modules

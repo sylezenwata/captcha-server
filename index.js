@@ -1,3 +1,8 @@
+/**
+ * server index file
+ */
+
+// dependencies
 require("dotenv").config();
 const express = require("express");
 

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAPTCHA Live Test</title>
+    <link rel="stylesheet" href="/static/v1/init.css" />
+    <script src="/static/v1/init.js" async></script>
+    <style>
+        a {
+            color: var(--color-scheme);
+        }
+
+        .form {
+            width: 100%;
+            max-width: 490px;
+            margin: 0 auto;
+            background-color: var(--light-bg-color);
+            border-radius: 15px;
+        }
+
+        .form-input {
+            border-width: 1px;
+            height: 50px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .input-wrap:not([data-error="true"]):focus-within .form-input {
+            border-width: 1px;
+        }
+
+        @media (max-width: 520px) {
+            .input-group-wrap {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content flex">
+        <div class="main-panel p-tb-20 flex flex-col justify-c">
+            <form action="" method="POST">
+                <div class="form b-s-low">
+                    <div class="form-header">
+                        <h1 class="text-c m-t-10">Contact Us</h1>
+                    </div>
+                    <div class="form-body">
+                        <% if(typeof notification != 'undefined'){ %>
+                        <div class="inner-notification m-b-10">
+                            <div class="inner-notification__content <%=notification.type%>">
+                                <p><%=notification.msg%></p>
+                            </div>
+                        </div>
+                        <% } %> 
+                        <div class="input-wrap">
+                            <div class="form-input__wrap">
+                                <label class="form-input__label">
+                                    <span class="f-12 f-w-6">Full name</span>
+                                    <input type="text" class="form-input" name="full_name" value="<%= typeof formData != 'undefined' ? formData.full_name : '' %>" placeholder="Enter full name" required />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-wrap">
+                            <div class="form-input__wrap">
+                                <label class="form-input__label">
+                                    <span class="f-12 f-w-6">Email</span>
+                                    <input type="text" class="form-input" name="email" value="<%= typeof formData != 'undefined' ? formData.email : '' %>" placeholder="Enter email" required />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-wrap">
+                            <div class="form-input__wrap">
+                                <label class="form-input__label">
+                                    <span class="f-12 f-w-6">Subject</span>
+                                    <input type="text" class="form-input" name="subject" value="<%= typeof formData != 'undefined' ? formData.subject : '' %>" placeholder="Enter subject" required />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-wrap">
+                            <div class="form-input__wrap">
+                                <label class="form-input__label">
+                                    <span class="f-12 f-w-6">Message</span>
+                                    <textarea class="form-input" name="message" placeholder="Enter message" required><%= typeof formData != 'undefined' ? formData.message : '' %></textarea>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- integrated CAPTCHA container -->
+                        <div id="captchaContainer" style="position: relative; margin-top: 20px">
+                            <div class="init-con">
+                                <div class="init-wrap flex align-c">
+                                    <input type="hidden" name="c" />
+                                    <input type="hidden" name="k" />
+                                    <div class="init-check">
+                                        <input type="checkbox" name="CAPTCHA" required />
+                                    </div>
+                                    <div class="init-info">
+                                        <p>Click the box</p>
+                                        <p>Protected by CAPTCHA</p>
+                                        <p style="font-family: MomsTypewriter; font-size: 1px">
+                                            &nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- integrated CAPTCHA container end -->
+                        <div class="flex justify-b align-b">
+                            <div class="text-mute p-r-10 f-12">
+                                By submitting, you agree that you have read and accepted
+                                our <a href="#">Terms</a> and <a href="#">Policies</a>.
+                            </div>
+                            <div class="btn-wrap">
+                                <button type="submit" class="btn primary">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

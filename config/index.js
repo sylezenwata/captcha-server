@@ -1,9 +1,14 @@
+/**
+ * server config file
+ */
+
+// dependencies
 const path = require("path");
 const express = require("express");
 
 // middlewares
-const cors = require("cors");
-const helmet = require("helmet");
+// const cors = require("cors");
+// const helmet = require("helmet");
 const compression = require("compression");
 
 /**
@@ -11,6 +16,8 @@ const compression = require("compression");
  * @param {*} app
  */
 module.exports.appConfig = (app) => {
+	// view
+	app.set("view engine", "ejs");
 	//compression
 	const compress = (req, res) => {
 		if (req.headers["x-no-compression"]) return false;
@@ -19,8 +26,8 @@ module.exports.appConfig = (app) => {
 	// disable express
 	app.disable("x-powered-by");
 	// middleware exec
-	app.use(cors());
-	app.use(helmet());
+	// app.use(cors());
+	// app.use(helmet());
     app.use(express.urlencoded({ extended: true }));
 	app.use(express.json());
 	app.use(compression({ filter: compress, threshold: 0 }));

@@ -6,7 +6,7 @@ module.exports = {
 	entry: {
         init: '/assets/js/init.js'
     },
-	mode: "production",
+	mode: "development",
 	output: {
 		path: `${__dirname}/public/static/v1`,
 		filename: "[name].js",
