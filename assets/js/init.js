@@ -11,7 +11,7 @@ const SET = require("./set");
 const { unitaryBase } = require("./mods");
 
 // base url
-const BASE_URL = 'http://localhost:4040/v1';
+const BASE_URL = '/v1';
 
 // vars
 const captchaCon = SET.$('#captchaContainer');

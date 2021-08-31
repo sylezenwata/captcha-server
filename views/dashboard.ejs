@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAPTCHA Live Test</title>
+    <link rel="stylesheet" href="/static/v1/init.css" />
+    <style>
+        a {
+            color: var(--color-scheme);
+        }
+
+        .form {
+            width: 100%;
+            max-width: 490px;
+            margin: 0 auto;
+            background-color: var(--light-bg-color);
+            border-radius: 15px;
+        }
+
+        .form-input {
+            border-width: 1px;
+            height: 50px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .input-wrap:not([data-error="true"]):focus-within .form-input {
+            border-width: 1px;
+        }
+
+        @media (max-width: 520px) {
+            .input-group-wrap {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content flex">
+        <div class="main-panel p-tb-20">
+            <div class="flex align-c justify-e">
+                <a href="/logout" style="text-decoration: underline;">Logout</a>
+            </div>
+            <div class="flex flex-col align-c" style="margin-top: 60px;">
+                <img style="width: 150px; height: 150px; border-radius: 50%; border: 1px solid var(--text-color);" src="/static/avatar.svg" alt="">
+                <h1 class="text-c text-cap m-t-20"><%=user%></h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

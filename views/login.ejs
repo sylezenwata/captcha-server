@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAPTCHA Live Test</title>
+    <link rel="stylesheet" href="/static/v1/init.css" />
+    <% if (showCaptcha === true) { %> 
+    <script src="/static/v1/init.js" async></script>
+    <% } %> 
+    <style>
+        a {
+            color: var(--color-scheme);
+        }
+
+        .form {
+            width: 100%;
+            width: 350px;
+            margin: 0 auto;
+            background-color: var(--light-bg-color);
+            border-radius: 15px;
+        }
+
+        .form-input {
+            border-width: 1px;
+            height: 50px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .input-wrap:not([data-error="true"]):focus-within .form-input {
+            border-width: 1px;
+        }
+
+        @media (max-width: 520px) {
+            .input-group-wrap {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content flex">
+        <div class="main-panel p-tb-20 flex flex-col justify-c">
+			<form action="" method="post" class="m-b-20">
+				<div class="form b-s-low">
+					<div class="form-header  flex flex-col align-c">
+						<h1 class="text-c m-t-20">Log In</h1>
+					</div>
+					<div class="form-body">
+						<% if(typeof notification != 'undefined'){ %>
+							<div class="inner-notification m-b-10">
+								<div class="inner-notification__content <%=notification.type%>">
+									<p><%=notification.msg%></p>
+								</div>
+							</div>
+						<% } %>
+						<div class="input-wrap">
+							<div class="form-input__wrap">
+								<label class="form-input__label">
+									<span>Email</span>
+									<input type="email" class="form-input" name="email" placeholder="Enter email" value="<%= typeof formData != 'undefined' ? formData.email : '' %>" required/>
+								</label>
+							</div>
+						</div>
+						<div class="input-wrap">
+							<div class="form-input__wrap">
+								<label class="form-input__label">
+									<span>Password</span>
+									<input type="password" class="form-input" name="password" placeholder="Enter password" required/>
+								</label>
+							</div>
+						</div>
+						<div class="flex justify-e m-t-10 position-r">
+							<a href="javascript:void(0);" onclick="alert('Contact support for account recovery.')">Forgot Password?</a>
+						</div>
+                        <% if (showCaptcha === true) { %> 
+                        <!-- integrated CAPTCHA container -->
+                        <div id="captchaContainer" style="position: relative; margin-top: 20px">
+                            <div class="init-con">
+                                <div class="init-wrap flex align-c">
+                                    <input type="hidden" name="c" />
+                                    <input type="hidden" name="k" />
+                                    <div class="init-check">
+                                        <input type="checkbox" name="CAPTCHA" required />
+                                    </div>
+                                    <div class="init-info">
+                                        <p>Click the box</p>
+                                        <p>Protected by CAPTCHA</p>
+                                        <p style="font-family: MomsTypewriter; font-size: 1px">
+                                            &nbsp;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- integrated CAPTCHA container end -->
+                        <% } %> 
+						<div class="btn-wrap m-b-20">
+							<button type="submit" class="btn primary w-100">
+								Log In
+							</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+    </div>
+</body>
+</html>
