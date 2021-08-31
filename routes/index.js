@@ -118,7 +118,7 @@ Route.post('/login', async (req, res) => {
                 let userExists = users.filter((e) => e['email'] === email.trim().toLowerCase());
                 if (userExists.length > 0) {
                     if (password === userExists[0]['password']) {
-                        res.redirect(`/dashboard?user=${userExists[0]['name']}&ssession=${new Date().getTime()}`)
+                        return res.redirect(`/dashboard?user=${userExists[0]['id']}&ssession=${new Date().getTime()}`)
                     } else {
                         throw new Error('Incorrect Login password.');
                     }
