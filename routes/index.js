@@ -73,6 +73,12 @@ const users = [
     },
     {
         id: 2,
+        name: "John Doe",
+        email: "johndoe@gmail.com",
+        password: "123456"
+    },
+    {
+        id: 3,
         name: "John Kennedy",
         email: "johnkennedy@gmail.com",
         password: "123456"
