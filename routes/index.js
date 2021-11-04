@@ -7,7 +7,6 @@
 const express = require("express");
 const Route = express.Router();
 const { errHandler, jsonRes, encryptData, decryptData, puzzleCode, validateCaptcha } = require("../utilities");
-const axios = require("axios");
 
 /**
  * base initialize captcha

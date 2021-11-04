@@ -55,7 +55,7 @@ export function unitaryBase(puzzle) {
 	let count = 0;
 	let decipheredPuzzle = '';
 	[...puzzle].map((eP, ePI) => {
-		if (ePI + 1 - 7 === count) {
+		if (ePI - 6 === count) {
 			decipheredPuzzle += eP;
 			count = ePI + 1;
 		}
